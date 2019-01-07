@@ -1,6 +1,12 @@
-Project Proposal:
+# Project Proposal:
 
- ## Which countries contribute to renewable energy and what type of generation methods wind/sun/water is most chosen amongst these countries.
+Quinten Becker
+12444057
+Minor Programmeren
+
+ ## Wat is landen aan renewable energy en hoe is dit met de jaren ontstaan, op in welke categorie doen ze aan deze renewable energy? (Transport, Electricity, Heating and Cooling).
+ 
+ ## Which countries contribute to renewable energy and what in what category of generation methods wind/sun/water is most chosen amongst these countries.
 
 Voor het project van de minor 'Programmeren' aan de Universiteit van Amsterdam moeten we een data visualisatie maken van een eigen gekozen (mondiaal) probleem. Dit probleem is in mijn geval het energievraagstuk, het eeuwig verbranden van fossiele brandstoffen is niet realistisch en hiervoor worden er steeds meer oplossingen gezocht.
 
@@ -20,11 +26,14 @@ Mijn proposal gaat over het mondiaal gebruik van deze duurzame energie; de vrage
 
 3.  Waarna je op elk land dat aan renewable energieopwekking doet kan drukken en er een verdeling van hoeveel procent van dat land wordt opgewekt door zon/wind & water opwekking in een cirkeldiagram.
 
-Data sources:
-https://data.oecd.org/energy/renewable-energy.htm
+### Data sources:
+https://ec.europa.eu/eurostat/tgm/refreshTableAction.do?tab=table&plugin=1&pcode=sdg_07_40&language=en
 
+https://www.eia.gov/beta/international/data/browser/#/?pa=0000000000000000000000000000008&c=ruvvvvvfvtvvvv1vvvvvvfvvvvvvfvvvsu20evvvvvvvvvvvvuvg&ct=0&tl_id=2-A&vs=INTL.34-12-AFG-BKWH.A&cy=2016&vo=0&v=H&end=2016&vid=6
+
+### External Components
 D3 library, misschien meerdere libraries gebruiken
 
 
-Challanges:
-It is going to be a challenge to find all data to fit the Circle diagram for all these countires.
+### Challenges:
+Het was moeilijk om de juiste Data te vinden, en vooral deze met elkaar te vergelijken. Omdat het is veel verschillende eenheden uit te drukken is. 
