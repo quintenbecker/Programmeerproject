@@ -33,6 +33,11 @@ https://www.eia.gov/beta/international/data/browser/#/?pa=0000000000000000000000
 ### External Components
 D3 library, misschien meerdere libraries gebruiken
 
+### Sketch
+Mijn site gaat er zo uitzien, waar je door op de interactieve wereldkaart te drukken en hierdoor toegang krijgt tot de line graph en pie chart van het desbetreffende land komt. 
+
+<img src="doc/Schets_opmaak.png" width="400">
+
 
 ### Challenges:
 Het was moeilijk om de juiste Data te vinden, en vooral deze met elkaar te vergelijken. Omdat het is veel verschillende eenheden uit te drukken is. 
