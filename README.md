@@ -4,9 +4,8 @@ Quinten Becker
 12444057
 Minor Programmeren
 
- ## Wat is landen aan renewable energy en hoe is dit met de jaren ontstaan, op in welke categorie doen ze aan deze renewable energy? (Transport, Electricity, Heating and Cooling).
+ #### Hoe groot is de productie van renewable energie per land en hoe is dit onderverdeeld in de verschillende sectoren; Transport, Electricity, Heating and Cooling?
  
- ## Which countries contribute to renewable energy and what in what category of generation methods wind/sun/water is most chosen amongst these countries.
 
 Voor het project van de minor 'Programmeren' aan de Universiteit van Amsterdam moeten we een data visualisatie maken van een eigen gekozen (mondiaal) probleem. Dit probleem is in mijn geval het energievraagstuk, het eeuwig verbranden van fossiele brandstoffen is niet realistisch en hiervoor worden er steeds meer oplossingen gezocht.
 
