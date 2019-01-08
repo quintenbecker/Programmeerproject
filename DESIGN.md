@@ -40,5 +40,6 @@ De opmaak van mijn JSON file is als volgt:
  Line Graph - Deze is linked met de Worldmap, er wordt op een bepaald land gedrukt, wat dan de key wordt. Hier ook worden                   alleen de totale waarde van elk jaar weergegeven in de line graph. Zo is er een mooi overzicht van de toename in               renewable energy van dat bepaalde land. Maar op elk jaar zit er een knopje op de lijn waar op geklikt kan                     worden. 
  
  Pie chart - Deze is linked met de Line Graph, wanneer er van een bepaald land op een bepaald jaarstip wordt geklikt, zoek je              de key "YEAR" en dan als key het land en worden de values die daarbij horen allemaal tentoongesteld in een pie                chart. We hebben het dan over de drie verschillende sectoren Transport, Electricity & Heat and Cooling.
-            
+
+<img src="doc/Schets_opmaak.png" width="400">
       
