@@ -1,8 +1,10 @@
 DESIGN Programmeerproject.
 
+# DATA
 De data die ik voor het project gebruik is: 
 > [Renewable energy](https://ec.europa.eu/eurostat/tgm/refreshTableAction.do?tab=table&plugin=1&pcode=sdg_07_40&language=en)
 
+## DATA -> JSON
 Op de site is deze data gemakkelijk te downloaden als CSV bestand. De eerste stap is om deze om te zetten naar JSON file. 
 De opmaak van mijn JSON file is als volgt:
 
@@ -25,6 +27,9 @@ De opmaak van mijn JSON file is als volgt:
       }
  ```
  
- Dit wordt gedaan omdat de wereldkaart met slider (per jaar) gemakkelijk te maken is. 
-      
+ Er wordt dus geselecteerd op jaren, met daarin de verschilledne landen en hun data van dat jaar. Dit wordt op deze manier gedaan omdat de wereldkaart met slider (per jaar) gemakkelijker te maken is, maar ook de line graph en pie chart door middel van de gekoppelde values aan de key makkelijk te vormen zijn. 
+ 
+ Dit is de enige keer dat mijn data geparsed wordt. MEt deze Json file kunnen alle visualisaties gemaakt worden. 
+ 
+ ## JSON -> VISUALISATIE
       
