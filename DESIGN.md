@@ -1,10 +1,10 @@
-DESIGN Programmeerproject.
+# DESIGN Programmeerproject.
 
-# DATA
+## DATA
 De data die ik voor het project gebruik is: 
 > [Renewable energy](https://ec.europa.eu/eurostat/tgm/refreshTableAction.do?tab=table&plugin=1&pcode=sdg_07_40&language=en)
 
-## DATA -> JSON
+### DATA -> JSON
 Op de site is deze data gemakkelijk te downloaden als CSV bestand. De eerste stap is om deze om te zetten naar JSON file. 
 De opmaak van mijn JSON file is als volgt:
 
@@ -31,5 +31,5 @@ De opmaak van mijn JSON file is als volgt:
  
  Dit is de enige keer dat mijn data geparsed wordt. MEt deze Json file kunnen alle visualisaties gemaakt worden. 
  
- ## JSON -> VISUALISATIE
+ ### JSON -> VISUALISATIE
       
