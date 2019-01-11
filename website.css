@@ -1,0 +1,11 @@
+.column1 {
+  position: absolute;
+  top: 100px;
+  left: 10;
+}
+
+.column2 {
+  position: absolute;
+  top: 100px;
+  left: 60%;
+}
