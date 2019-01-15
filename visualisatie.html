@@ -3,18 +3,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <!-- <script src="d3/d3-tip.js"></script> -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css"  href="scatter.css">
-  <script type="text/javascript" src="d3/d3.js"></script>
-  <script src="d3/d3-tip.js"></script>
-  <script>console.log(" test")</script>
-
+  <script src="worldmap.js"></script>
+  <script src="piechart.js"></script>
+  <script src="barchart.js"></script>
+  <script src="all.js"></script>
+  <!-- <link rel="stylesheet" type="text/css"  href="scatter.css"> -->
 </HEAD>
 <BODY>
   <Title> Programmeerproject </Title>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Programmeerproject</a>
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,10 +30,12 @@
         <a class="nav-link" href="data.html">Data</a>
       </li>
     </ul>
-
   </div>
 </nav>
 <h3> Visualisatie </h3>
 <p1> Hier is mijn visualisatie te zien, allereerst een interactieve wereldkaart, dan een barchart & dan een piechart </p>
+  <svg width="1000" height="500"></svg>
+  <svg width="500" height="400"></svg>
+  <svg width="500" height="400"></svg>
 </BODY>
 </HTML>
