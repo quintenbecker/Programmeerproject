@@ -7,42 +7,40 @@ lineDict = {}
 value = Object.values(data)
 value.forEach(function(v, i){
   lineDict[years[i]] = v[country]["Share of renewable energy in gross final energy consumption"];
+
+
 })
-// data = lineDict
-console.log(lineDict);
-// }
-//
-// lineDict.forEach(function(data){
-//   console.log(data);
-// // })
-//
+
 drawlinechart();
 function drawlinechart(){
 
-  // setup size of line chart
-  var margin = {top: 20, right:20, bottom: 30, left: 20},
+  // setup margind of line chart
+  var margin = {top: 20, right:20, bottom: 30, left: 50},
       width = 600 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
-  var svg = d3.select('body')
+  var svgHeight = 400;
+  var svgWidth = 600;
+
+  var svg = d3.select('#line')
      .append('svg')
-     .attr("width", width)
-     .attr("height", height);
+     .attr("width", svgWidth)
+     .attr("height", svgHeight);
 
   var g = svg.append("g")
      .attr("transform",
        "translate(" + margin.left + "," + margin.top + ")"
      );
-     console.log(lineDict);
 
      console.log(Object.keys(lineDict));
      console.log(Object.values(lineDict));
+
    // x and y scales
    var x = d3.scaleLinear()
-     .range([0, width]);
+     .range([0, width])
 
    var y = d3.scaleLinear()
-     .range([0, height]);
+     .range([height, 0])
 
    var line = d3.line()
       .x(function(d) { return x(d)})
@@ -54,8 +52,8 @@ function drawlinechart(){
   // setup bottom axis
      g.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
-        .select(".domain");
+        .call(d3.axisBottom(x));
+        // .select(".domain");
 
   // setup left axis
       g.append("g")
@@ -68,8 +66,6 @@ function drawlinechart(){
          .attr("text-anchor", "end")
          .text("Percentage of total");
 
-         console.log(lineDict);
-
   // setup path
          g.append("path")
          .datum(Object.keys(lineDict))
@@ -77,14 +73,37 @@ function drawlinechart(){
          .attr("stroke", "steelblue")
          .attr("stroke-linejoin", "round")
          .attr("stroke-linecap", "round")
-         .attr("stroke-width", 1.5)
+         .attr("stroke-width", 3)
          .attr("d", line);
 
+         // var scatter = g.selectAll("circle")
+         //           .data(lineDict)
+         //           .enter()
+         //           .append("circle")
+         //           .attr("cx", function(d) {
+         //              return x(d[1]);
+         //              })
+         //           .attr("cy", function(d) {
+         //              return y(d[2]);
+         //              })
+         //           .attr("r", 10)
+         //           .attr("fill", "maroon");
 
 
+         year = "2008";
 
+         makeBarChart(year, country, data);
 }
-
-
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// makeBarChart()
+//
+// function makeBarChart(){
+//
+// console.log(data);
+// years = Object.keys(data)
+// barDict = {}
+// barDict[years[i]]
+//
+// }
 
 }
