@@ -2,12 +2,11 @@ function makeBarChart(year, country, data){
 
 
 console.log(data);
-year = "2008"
+year = "2014"
 barChartList = []
 barChartList.push(data[year][country]["Share of renewable energy in electricity"])
 barChartList.push(data[year][country]["Share of renewable energy in heating and cooling"])
 barChartList.push(data[year][country]["Share of renewable energy in transport"])
-console.log(barChartList);
 drawBarChart(barChartList);
 
 }
@@ -15,23 +14,23 @@ drawBarChart(barChartList);
 function drawBarChart(barChartList){
 
   // setup margind of line chart
-  var margin = {top: 20, right:20, bottom: 30, left: 50},
+  var margin = {top: 10, right:100, bottom: 0, left: 30},
       width = 600 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
  var svgHeight = 400;
  var svgWidth = 600;
- var barPadding = 10;
- var marginbottom = 20;
+ var barPadding = 1;
+
 
   // scale x and y axis to boxplot data and given marges
   var yScale = d3.scaleLinear()
-    .range([0, svgHeight])
-    .domain([0, 200])
+    .range([svgHeight - margin.top, margin.bottom])
+    .domain([0, 100])
 
   var xScale = d3.scaleLinear()
-    .range([width, margin.left])
-    .domain([0, 3])
+    .range([margin.left, width - margin.right])
+    .domain([0, 2])
 
 
     var svg = d3.select('#bar')
@@ -41,26 +40,32 @@ function drawBarChart(barChartList){
 
        // make Y-axe
      var yAxis = svg.append("g")
-         .attr("transform", "translate(20," + "0" + ")")
+         .attr("transform", "translate(25," + "5" + ")")
          .call(d3.axisLeft(yScale));
 
- console.log(xScale(barChartList[0]));
+
+     // // This is fot the x-axis, it works, but I left it out because it isn't important in my barchart
+     // var xAxis = svg.append('g')
+     //     .attr("transform", "translate(" + "0" + "," + (h - marginbottom) +")")
+     //     .call(d3.axisBottom(xScale))
+
+         console.log(xScale(barChartList[0]));
 
   var rects = svg.selectAll("rect")
                .data(barChartList)
                .enter()
                .append("rect")
                .attr("y", function(d) {
-                return yScale(d);  //Height minus data value
+                return (yScale(d) - margin.bottom);  //Height minus data value
                 })
-               .attr("width", width / barChartList.length - barPadding)
+               .attr("width", width / barChartList.length + barPadding)
                .attr("height", function(d) {
-                return height - yScale(d) - marginbottom;  //Just the data value
+                return height - yScale(d) - margin.bottom;  //Just the data value
                 })
                .attr("x", function(d, i) {
                     return xScale(i);  //Bar width of 20 plus 1 for padding
                   })
-               .attr("fill", "teal");
+               .attr("fill", "steelblue");
                // .on('mouseover', tool_tip.show)
                // .on('mouseenter', function(d){
                //   // tool_tip.show;

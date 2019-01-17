@@ -8,7 +8,7 @@ value = Object.values(data)
 value.forEach(function(v, i){
   lineDict[years[i]] = v[country]["Share of renewable energy in gross final energy consumption"];
 
-
+console.log(lineDict);
 })
 
 drawlinechart();
@@ -32,12 +32,13 @@ function drawlinechart(){
        "translate(" + margin.left + "," + margin.top + ")"
      );
 
-     console.log(Object.keys(lineDict));
-     console.log(Object.values(lineDict));
+     // console.log(Object.keys(lineDict));
+     // console.log(Object.values(lineDict));
 
    // x and y scales
    var x = d3.scaleLinear()
      .range([0, width])
+     // .domain([2007, 201])
 
    var y = d3.scaleLinear()
      .range([height, 0])
@@ -52,7 +53,7 @@ function drawlinechart(){
   // setup bottom axis
      g.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).tickFormat(d3.format("")))
         // .select(".domain");
 
   // setup left axis
@@ -90,7 +91,7 @@ function drawlinechart(){
          //           .attr("fill", "maroon");
 
 
-         year = "2008";
+         year = "2015";
 
          makeBarChart(year, country, data);
 }

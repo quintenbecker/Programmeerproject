@@ -1,7 +1,8 @@
 window.onload = function() {
 
 //
-  d3.json("scripts/jsonfile.json", function(error, data) {
+  d3.json("scripts/jsonfile.json").then(function(data) {
+    console.log(data);
     makeWorldmap(data);
     })
 
