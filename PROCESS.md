@@ -18,7 +18,7 @@ Vandaag heb ik mijn Data ge-parsed naar een JSON file en heb ik mijn site ingela
 Begonnen aan de visualisaties, javascript bestanden aangenmaakt, en het principe begrijpen. Toch een andere wending genomen, geen piechart, maar een barchart.
 
 ## dinsdag
-De line chart was moeilijker dan gedacht, had nog wat moeite met de data in een goed format zetten om hier te gebruiken. Uiteindelijk wel gelukt, maar moet dus nog wel wat snelheid maken om alles voor vrijdag goed af te hebben. Afspraak met team gehad en een styleguide geschreven. 
+De line chart was moeilijker dan gedacht, had nog wat moeite met de data in een goed format zetten om hier te gebruiken. Uiteindelijk wel gelukt, maar moet dus nog wel wat snelheid maken om alles voor vrijdag goed af te hebben. Afspraak met team gehad en een styleguide geschreven.
 
 
 ## woensdag
@@ -29,3 +29,10 @@ vandaag heb ik alle 3 de basis visualisaties afgekregen; een worldmap, een linec
 
 ## vrijdag
 ZIEK
+
+# Week 3
+
+## maandag
+
+## dinsdag
+Vandaag heb ik mijn worldmap verder afgemaakt, design is mooier en de waarder zijn nu visable. Ook heb ik de click-on verder aangecherpt en de namen van de landen die niet hetzelfde waren in de worldmap en in mijn json data ook aangepast.

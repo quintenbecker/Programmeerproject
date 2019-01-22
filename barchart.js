@@ -2,7 +2,7 @@ function makeBarChart(year, country, data){
 
 
 console.log(data);
-year = "2014"
+// year = "2014"
 barChartDict = {}
 
 var barChartDict = {

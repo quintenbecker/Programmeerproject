@@ -1,8 +1,9 @@
 function makelinechart(country, data){
 
 console.log(country);
+
+
 years = Object.keys(data)
-// console.log(country);
 
 lineDict = {}
 value = Object.values(data)
@@ -31,9 +32,6 @@ function drawlinechart(){
        "translate(" + margin.left + "," + margin.top + ")"
      );
 
-     // console.log(Object.keys(lineDict));
-     // console.log(Object.values(lineDict));
-
    // x and y scales
    var x = d3.scaleLinear()
      .range([0, width])
@@ -47,6 +45,12 @@ function drawlinechart(){
       .y(function(d) { return y(lineDict[d])})
       x.domain(d3.extent(Object.keys(lineDict), function(d) { return +d}));
       y.domain(d3.extent(Object.values(lineDict), function(d) { return +d }));
+
+    var lineCircle = d3.line()
+       .x(function(d, i) { return x(i)})
+       .y(function(d) { return y(d)})
+       x.domain(d3.extent(Object.keys(lineDict), function(d) { return +d}));
+       y.domain(d3.extent(Object.values(lineDict), function(d) { return +d }));
 
 
   // setup bottom axis
@@ -77,21 +81,25 @@ function drawlinechart(){
          .attr("d", line);
 
          g.selectAll("circle")
-         .data(lineDict)
+         .data(Object.keys(lineDict))
          .enter()
          .append("circle")
-         .attr("cx", (lineDict, function(d) {
+         .attr("r", 3.5)
+         .attr("cx", function(d) {
                 return x(d);
-              }))
-         .attr("cy", (lineDict, function(d) {
+              })
+         .attr("cy", function(d) {
               return y(lineDict[d]);
-            }))
-         .attr("fill", "maroon");
+            })
+         .attr("fill", "maroon")
+         .on("click", function(d){
+           makeBarChart(d, country, data);
+         });
 
 
-         year = "2015";
-
-         makeBarChart(year, country, data);
+         // year = "2015";
+         //
+         // makeBarChart(year, country, data);
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // makeBarChart()
