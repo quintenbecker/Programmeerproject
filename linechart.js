@@ -1,5 +1,6 @@
 function makelinechart(country, data){
 
+console.log(country);
 years = Object.keys(data)
 // console.log(country);
 
@@ -7,8 +8,6 @@ lineDict = {}
 value = Object.values(data)
 value.forEach(function(v, i){
   lineDict[years[i]] = v[country]["Share of renewable energy in gross final energy consumption"];
-
-console.log(lineDict);
 })
 
 drawlinechart();
@@ -77,18 +76,17 @@ function drawlinechart(){
          .attr("stroke-width", 3)
          .attr("d", line);
 
-         // var scatter = g.selectAll("circle")
-         //           .data(lineDict)
-         //           .enter()
-         //           .append("circle")
-         //           .attr("cx", function(d) {
-         //              return x(d[1]);
-         //              })
-         //           .attr("cy", function(d) {
-         //              return y(d[2]);
-         //              })
-         //           .attr("r", 10)
-         //           .attr("fill", "maroon");
+         g.selectAll("circle")
+         .data(lineDict)
+         .enter()
+         .append("circle")
+         .attr("cx", (lineDict, function(d) {
+                return x(d);
+              }))
+         .attr("cy", (lineDict, function(d) {
+              return y(lineDict[d]);
+            }))
+         .attr("fill", "maroon");
 
 
          year = "2015";

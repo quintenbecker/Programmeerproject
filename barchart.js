@@ -3,20 +3,35 @@ function makeBarChart(year, country, data){
 
 console.log(data);
 year = "2014"
+barChartDict = {}
+
+var barChartDict = {
+  "Share of renewable energy in electricity": data[year][country]["Share of renewable energy in electricity"],
+  "Share of renewable energy in heating and cooling": data[year][country]["Share of renewable energy in heating and cooling"],
+  "Share of renewable energy in transport": data[year][country]["Share of renewable energy in transport"]
+};
+
+
+
 barChartList = []
 barChartList.push(data[year][country]["Share of renewable energy in electricity"])
 barChartList.push(data[year][country]["Share of renewable energy in heating and cooling"])
 barChartList.push(data[year][country]["Share of renewable energy in transport"])
 drawBarChart(barChartList);
 
+console.log(barChartDict);
+console.log(Object.values(barChartDict));
+console.log(barChartDict["Share of renewable energy in electricity"]);
+// console.log(barChartDict.length);
 }
 
-function drawBarChart(barChartList){
+function drawBarChart(barChartDict){
 
   // setup margind of line chart
   var margin = {top: 10, right:100, bottom: 0, left: 30},
       width = 600 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
+      middle = (width - margin.right)/2 + margin.left /2
 
  var svgHeight = 400;
  var svgWidth = 600;
@@ -28,13 +43,12 @@ function drawBarChart(barChartList){
     .range([svgHeight - margin.top, margin.bottom])
     .domain([0, 100])
 
-  var xScale = d3.scaleLinear()
-    .range([margin.left, width - margin.right])
-    .domain([0, 2])
+  var xScale = d3.scaleOrdinal()
+    .range([margin.left, middle , width - margin.right])
+    .domain(['Share of renewable energy in electricity', 'Share of renewable energy in heating and cooling', 'Share of renewable energy in transport'])
 
 
     var svg = d3.select('#bar')
-       .append('svg')
        .attr("width", svgWidth)
        .attr("height", svgHeight);
 
@@ -43,27 +57,26 @@ function drawBarChart(barChartList){
          .attr("transform", "translate(25," + "5" + ")")
          .call(d3.axisLeft(yScale));
 
+      // make X-axis
+     var xAxis = svg.append('g')
+         .attr("transform", "translate(" + "0" + "," + (svgHeight - margin.bottom) +")")
+         .call(d3.axisBottom(xScale))
 
-     // // This is fot the x-axis, it works, but I left it out because it isn't important in my barchart
-     // var xAxis = svg.append('g')
-     //     .attr("transform", "translate(" + "0" + "," + (h - marginbottom) +")")
-     //     .call(d3.axisBottom(xScale))
+         // console.log(xScale(barChartList[0]));
 
-         console.log(xScale(barChartList[0]));
-
-  var rects = svg.selectAll("rect")
-               .data(barChartList)
+     var rects = svg.selectAll("rect")
+               .data(barChartDict)
                .enter()
                .append("rect")
                .attr("y", function(d) {
                 return (yScale(d) - margin.bottom);  //Height minus data value
                 })
-               .attr("width", width / barChartList.length + barPadding)
+               .attr("width", width / 3 + barPadding)
                .attr("height", function(d) {
                 return height - yScale(d) - margin.bottom;  //Just the data value
                 })
                .attr("x", function(d, i) {
-                    return xScale(i);  //Bar width of 20 plus 1 for padding
+                    return xScale(d);  //Bar width of 20 plus 1 for padding
                   })
                .attr("fill", "steelblue");
                // .on('mouseover', tool_tip.show)

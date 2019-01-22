@@ -18,7 +18,14 @@ Vandaag heb ik mijn Data ge-parsed naar een JSON file en heb ik mijn site ingela
 Begonnen aan de visualisaties, javascript bestanden aangenmaakt, en het principe begrijpen. Toch een andere wending genomen, geen piechart, maar een barchart.
 
 ## dinsdag
+De line chart was moeilijker dan gedacht, had nog wat moeite met de data in een goed format zetten om hier te gebruiken. Uiteindelijk wel gelukt, maar moet dus nog wel wat snelheid maken om alles voor vrijdag goed af te hebben. Afspraak met team gehad en een styleguide geschreven. 
+
 
 ## woensdag
+Vandaag is de line chart helemaal af, en heb ook gecheckt als ik 'country' verander, dat de line ook verandert. Dat werkt. De barchart is ook verder gekomen, alleen nog de assen maken. Dan kijken of er mbv een toop_tip, de visualisatie mooier en duidelijker gemaakt kan worden.
 
 ## donderdag
+vandaag heb ik alle 3 de basis visualisaties afgekregen; een worldmap, een linechart en een barchart. Ik moet alleen nog de interactie tussen de visualisaties nog implementeren. Het begrip erachter is er wel al, alleen de click on toepassen.  
+
+## vrijdag
+ZIEK

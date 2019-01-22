@@ -2,11 +2,10 @@ function makeWorldmap(data){
 
 
 
-country = "Sweden"
+// country = "Sweden"
+//
+// makelinechart(data)
 
-makelinechart(country, data)
-
-console.log(country);
 
   var worldmap = "map.json"
   var request = [d3.json(worldmap)];
@@ -30,9 +29,11 @@ console.log(country);
     var path = d3.geoPath();
 
     var svg = d3.select("#map")
-                .append("svg")
                 .append('g')
                 .attr('class', 'map');
+
+    svg.call(tip);
+
 
     var projection = d3.geoMercator()
                        .scale(440)
@@ -52,6 +53,9 @@ console.log(country);
          .style('stroke', 'white')
          .style('stroke-width', 1.5)
          .style("opacity",0.8)
+         .on("click", function(f){
+           makelinechart(f.properties.name, data)
+         })
          // tooltips
          .style("stroke","white")
          .style('stroke-width', 0.3)
