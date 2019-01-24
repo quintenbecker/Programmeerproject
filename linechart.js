@@ -86,14 +86,15 @@ function drawlinechart(){
          .append("circle")
          .attr("r", 3.5)
          .attr("cx", function(d) {
-                return x(d);
+              return x(d);
               })
          .attr("cy", function(d) {
               return y(lineDict[d]);
             })
-         .attr("fill", "maroon")
+         .attr("fill", "black")
          .on("click", function(d){
-           makeBarChart(d, country, data);
+              makeBarChart(d, country, data);
+
          });
 
 
