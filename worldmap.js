@@ -1,7 +1,7 @@
 function makeWorldmap(data){
 
 
-drawMap(data)
+drawMap(data, "2007")
 makeSlider(data)
 // country = "Sweden"
 //
@@ -10,44 +10,65 @@ makeSlider(data)
 
 function makeSlider(data){
   // Simple
-  var data = Object.keys(data);
+  // Time
+var dataTime = d3.range(0, 10).map(function(d) {
+  return new Date(2007 + d, 9, 3);
+});
+var gTime = d3
+  .select('#slider')
+  .append('svg')
+  .attr('width', 500)
+  .attr('height', 100)
+  .append('g')
+  .attr('transform', 'translate(30,30)');
+
+var sliderTime = d3
+  .sliderBottom()
+  .min(d3.min(dataTime))
+  .max(d3.max(dataTime))
+  .step(1000 * 60 * 60 * 24 * 365)
+  .width(300)
+  .tickFormat(d3.timeFormat('%Y'))
+  .tickValues(dataTime)
+  .default(new Date(1998, 10, 3))
+  .on('onchange', val => {
+    d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
+    var year = (d3.timeFormat('%Y')(sliderTime.value()));
+    drawMap(data, d3.timeFormat('%Y')(sliderTime.value()))
+  });
 
 
-  var sliderStep = d3
-    .sliderBottom()
-    .min(d3.min(data))
-    .max(d3.max(data))
-    .width(500)
-    .tickFormat(d3.format(''))
-    .ticks(5)
-    .step(0.005)
-    // .default(0.015)
-    .on('onchange', val => {
-      d3.select('p#value-step').text(d3.format('')(val));
-    });
 
-  var gStep = d3
-    .select('#slider')
-    .append('svg')
-    .attr('width', 500)
-    .attr('height', 100)
-    .append('g')
-    .attr('transform', 'translate(30,30)');
+gTime.call(sliderTime);
 
-  gStep.call(sliderStep);
 
-  d3.select('p#value-step').text(d3.format('.2%')(sliderStep.value()));
 
-  // d3.select('p#value-simple').text(d3.format('.2%')(sliderSimple.value()));
+
+
 }
 
-function drawMap(data){
+function drawMap(data, year){
+
+
   var worldmap = "map.json"
   var jsonfile = "jsonfile.json"
   var request = [d3.json(worldmap)];
   var format = d3.format(",");
 
   Promise.all(request).then(function(response){
+    if (d3.select(".map")){
+      d3.select(".map").remove()
+    }
+
+    console.log(data);
+    d3.select("#d3-dropdown").append("option").attr("value", "Belgium").html("Belgium")
+    d3.select("#d3-dropdown").selectAll(".option").data(Object.keys(data[year]))
+    .enter().append("option")
+    .attr("value", function(d){ console.log(d);return d})
+    .html(function(d){ return d})
+
+
+
     var height = 400;
     var width = 1000;
 
@@ -57,7 +78,7 @@ function drawMap(data){
                 .offset([-10, 0])
                 .html(function(d) {
                   return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" +
-                        "<strong>Percentage renewable energy: </strong><span class='details'>" + data["2015"][d.properties.name]["Share of renewable energy in gross final energy consumption"] + "</span>";
+                        "<strong>Percentage renewable energy: </strong><span class='details'>" + data[year][d.properties.name]["Share of renewable energy in gross final energy consumption"] + "</span>";
                 })
 
     var path = d3.geoPath();
@@ -75,7 +96,7 @@ function drawMap(data){
 
     var path = d3.geoPath().projection(projection);
 
-    svg.selectAll()
+    // svg.selectAll()
 
     svg.append("g")
          .attr("class", "countries")
@@ -84,7 +105,7 @@ function drawMap(data){
          .enter().append("path")
          .attr("d", path)
          .style("fill", function(d){
-           if (data["2015"][d.properties.name] == undefined){
+           if (data[year][d.properties.name] == undefined){
              return "black"}
            else{
            return "steelblue"}
@@ -99,7 +120,7 @@ function drawMap(data){
          .style('stroke-width', 0.3)
          .on('mouseover',function(d){
            console.log(d);
-           if (data["2015"][d.properties.name] !== undefined){
+           if (data[year][d.properties.name] !== undefined){
              d3.select(this)
                .style("opacity", 1)
                .style("stroke","white")

@@ -36,3 +36,12 @@ ZIEK
 
 ## dinsdag
 Vandaag heb ik mijn worldmap verder afgemaakt, design is mooier en de waarder zijn nu visable. Ook heb ik de click-on verder aangecherpt en de namen van de landen die niet hetzelfde waren in de worldmap en in mijn json data ook aangepast.
+
+## woensdag
+Weinig gewerkt
+
+## donderdag
+Vandaag heb ik mijn barchart afgekregen, een mooiere slider gemaakt, maar nog niet laten interacten met mijn visualisaties. Ik heb besloten een drop down menu te maken bij de line graph waar je een land kan kiezen.
+
+## vrijdag
+Vandaag ben ik bezig geweest om mijn update functies te schrijven, het is me gelukt om voor de barchart en de linegraph een update functie te schrijven. Ook heb ik mijn slider geimplementeerd en gekoppeld aan mijn worldmap. Daarnaast heb ik mijn dropbox gemaakt. 
