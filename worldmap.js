@@ -61,13 +61,21 @@ function drawMap(data, year){
     }
 
     console.log(data);
-    d3.select("#d3-dropdown").append("option").attr("value", "Belgium").html("Belgium")
+    function test(){
+      selectValue = d3.select('#d3-dropdown').property('value')
+      console.log(selectValue);
+      makelinechart(selectValue, data)
+    }
+    d3.select(" #d3-dropdown").on("change", test)
+    d3.select("#d3-dropdown").append("option").html("Choose country")
     d3.select("#d3-dropdown").selectAll(".option").data(Object.keys(data[year]))
     .enter().append("option")
-    .attr("value", function(d){ console.log(d);return d})
+    .attr("value", function(d){;return d})
     .html(function(d){ return d})
 
-
+    var color = d3.scaleThreshold()
+        .domain([10,20,40,60,80,100])
+        .range(["rgb(0, 230, 0)","rgb(0, 204, 51)", "rgb(0, 179, 45)", "rgb(0, 153, 38)" ,"rgb(0, 128, 32)","rgb(0, 102, 26)"]);
 
     var height = 400;
     var width = 1000;
@@ -108,7 +116,7 @@ function drawMap(data, year){
            if (data[year][d.properties.name] == undefined){
              return "black"}
            else{
-           return "steelblue"}
+           return color(data[year][d.properties.name]["Share of renewable energy in gross final energy consumption"])}
          })
          .style('stroke', 'white')
          .style('stroke-width', 1.5)

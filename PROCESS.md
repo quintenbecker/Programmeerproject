@@ -44,4 +44,9 @@ Weinig gewerkt
 Vandaag heb ik mijn barchart afgekregen, een mooiere slider gemaakt, maar nog niet laten interacten met mijn visualisaties. Ik heb besloten een drop down menu te maken bij de line graph waar je een land kan kiezen.
 
 ## vrijdag
-Vandaag ben ik bezig geweest om mijn update functies te schrijven, het is me gelukt om voor de barchart en de linegraph een update functie te schrijven. Ook heb ik mijn slider geimplementeerd en gekoppeld aan mijn worldmap. Daarnaast heb ik mijn dropbox gemaakt. 
+Vandaag ben ik bezig geweest om mijn update functies te schrijven, het is me gelukt om voor de barchart en de linegraph een update functie te schrijven. Ook heb ik mijn slider geimplementeerd en gekoppeld aan mijn worldmap. Daarnaast heb ik mijn dropbox gemaakt.
+
+# Week 4
+
+## maandag
+Vandaag heb ik de dropdown geimplementeerd, hij werkt en update goed. Verder ben ik vandaag bezig geweest met de opmaak van mn site. 

@@ -98,7 +98,7 @@ function drawlinechart(){
          .datum(Object.keys(lineDict))
          .attr("fill", "none")
          .attr("class", "line")
-         .attr("stroke", "steelblue")
+         .attr("stroke", "rgb(0, 179, 0)")
          .attr("stroke-linejoin", "round")
          .attr("stroke-linecap", "round")
          .attr("stroke-width", 3)
@@ -154,7 +154,7 @@ function drawlinechart(){
       .attr("d", line)
       .attr("class", "line")
       .style("fill", "none")
-      .style("stroke", "steelblue");
+      .style("stroke", "rgb(0, 179, 0)");
 
   var newCircle = d3.select("#line").select("g").selectAll(".circle").data(Object.keys(lineDict));
   newCircle

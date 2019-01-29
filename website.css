@@ -1,11 +1,11 @@
-.column1 {
-  position: absolute;
-  top: 100px;
-  left: 10;
+body{
+  background: powderblue;
 }
 
-.column2 {
-  position: absolute;
-  top: 100px;
-  left: 60%;
+#Fronttext{
+  font-family: sans-serif;
+  font-weight: 100;
+  font-style:
+  font-size: 500%;
+  transform: translate(10px, 80px);
 }

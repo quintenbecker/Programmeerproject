@@ -91,7 +91,7 @@ function drawBarChart(barChartDictT){
                .attr("x", function(d, i) {
                     return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
                   })
-               .attr("fill", "steelblue")
+               .attr("fill", "rgb(0, 179, 0)")
                .attr("class", "rects")
                // .on('mouseover', tool_tip.show)
                // .on('mouseenter', function(d){
@@ -152,7 +152,7 @@ function updateBarFunction(barData) {
         // .attr("x", function(d, i) {
         //      return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
         //    })
-        .attr("fill", "steelblue")
+        .attr("fill", "rgb(0, 179, 0)")
         .attr("class", "rects")
 
 }
