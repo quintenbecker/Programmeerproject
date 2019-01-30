@@ -55,45 +55,53 @@ function drawBarChart(barChartDictT){
     .domain(xvars.map(function(d) {return d}))
 
 
-    var svg = d3.select('#bar')
-       .attr("width", svgWidth)
-       .attr("height", svgHeight);
+  var svg = d3.select('#bar')
+     .attr("width", svgWidth)
+     .attr("height", svgHeight);
 
-       // make Y-axe
-     var yAxis = svg.append("g")
-         .attr("transform", "translate(" + margin.left + "," + "0" + ")")
-         .call(d3.axisLeft(yScale));
+     // make Y-axe
+   var yAxis = svg.append("g")
+       .attr("transform", "translate(" + margin.left + "," + "0" + ")")
+       .call(d3.axisLeft(yScale));
 
-      // make X-axis
-     var xAxis = svg.append('g')
-         .attr("transform", "translate(0, 380)")
-         .call(d3.axisBottom(xScale))
+    // make X-axis
+   var xAxis = svg.append('g')
+       .attr("transform", "translate(0, 380)")
+       .call(d3.axisBottom(xScale))
 
-     svg.call(tooltip);
+   svg.call(tooltip);
 
-     list = Object.values(barChartDictT)
+   list = Object.values(barChartDictT)
 
-     // crerate barchart
-     var rects = svg.selectAll("rect")
-               .data(list)
-               .enter()
-               .append("rect")
-               .attr("y", function(d) {
-                return yScale(d) ;  //Height minus data value
+   svg.append('text')
+   .attr('x', 230)
+   .attr('y', 20)
+   .attr('id', 'countryNow')
+   .attr('fontfamily', 'arial')
+   .style('fontsize', '5px')
+   .text("Percentage of share renewable energy per sector" )
+
+   // crerate barchart
+   var rects = svg.selectAll("rect")
+             .data(list)
+             .enter()
+             .append("rect")
+             .attr("y", function(d) {
+              return yScale(d) ;  //Height minus data value
+              })
+             .attr("width", width / 3  - barPadding)
+             .attr("height", function(d) {
+              return height - yScale(d) + margin.bottom ;  //Just the data value
+              })
+             .attr("x", function(d, i) {
+                  return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
                 })
-               .attr("width", width / 3  - barPadding)
-               .attr("height", function(d) {
-                return height - yScale(d) + margin.bottom ;  //Just the data value
-                })
-               .attr("x", function(d, i) {
-                    return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
-                  })
-               .attr("fill", "rgb(51, 153, 102)")
-               .attr("class", "rects")
-               .on('mouseover', function(d){
-                 tooltip.show(d);
-               })
-               .on('mouseout', tooltip.hide)
+             .attr("fill", "rgb(51, 153, 102)")
+             .attr("class", "rects")
+             .on('mouseover', function(d){
+               tooltip.show(d);
+             })
+             .on('mouseout', tooltip.hide)
 }
 
 // update existing barcahrt

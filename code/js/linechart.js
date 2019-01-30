@@ -104,6 +104,14 @@ function drawLineChart(){
 
          d3.select("#line").select("g").call(toolTip);
 
+         d3.select("#line").select("g").append('text')
+         .attr('x', 40)
+         .attr('y', 5)
+         .attr('id', 'countryNow')
+         .attr('fontfamily', 'arial')
+         .style('fontsize', '5px')
+         .text("Development of renewable energy:" + " " + country)
+
          // makes scatterpolot for given data on linechart
          var scatter = d3.select("#line").select("g").selectAll("circle")
          .data(Object.keys(lineDict))
@@ -159,6 +167,16 @@ function updateFunction() {
       .attr("class", "line")
       .style("fill", "none")
       .style("stroke", "rgb(51, 153, 102)");
+
+    d3.select("#line").select("g").select("#countryNow").remove()
+
+    d3.select("#line").select("g").append('text')
+    .attr('x', 40)
+    .attr('y', 5)
+    .attr('id', 'countryNow')
+    .attr('fontfamily', 'arial')
+    .style('fontsize', '5px')
+    .text("Development of renewable energy:" + " " + country)
 
   // make new circle
   var newCircle = d3.select("#line").select("g").selectAll(".circle").data(Object.keys(lineDict));
