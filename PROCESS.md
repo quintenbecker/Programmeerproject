@@ -55,4 +55,4 @@ Vandaag heb ik de dropdown geimplementeerd, hij werkt en update goed. Verder ben
 Vandaag ga ik nog de tooltips bij de scatterplot en bij de barchart toevoegen. Omdat ik maandag de map heat-sensitive heb gemaakt, ga ik daar ook een legenda voor maken. Ik heb vandaag ook veel aan de opmaak van m'n site gewerkt. De homepage van mijn site is zo goed als af.
 
 ## woensdag
-Vandaag ga ik mijn legenda implementeren en op hopelijk met wat hulp op de juiste plek zetten, verder schoon ik mijn code verder op.  
+Vandaag ben ik vooral bezig geweest met mijn code op te schonen. Ik heb de belangrijke comments geplaatst. Ik heb mijn Github repository verder opgeschoond en alles in mappen gezet. Ook heb ik vandaag mijn ReadME geschreven. Ik merkte wel toen ik mijn site online ging bekijken op Github dat er wel een paar complicaties waren. Zo is mijn barchart nu onder de linegraph in plaats van daar rechtsvan. Dit is jammer, had ik achteraf een stuk eerder moeten doen.  
