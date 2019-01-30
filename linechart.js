@@ -1,36 +1,27 @@
 function makelinechart(country, data){
 
-console.log(country);
-
-
 years = Object.keys(data)
 
+// make dictionary with the right data
 lineDict = {}
 value = Object.values(data)
 value.forEach(function(v, i){
   lineDict[years[i]] = v[country]["Share of renewable energy in gross final energy consumption"];
 })
 
+// creates first linechart if no linechart exists, otherwise update linechart
 if ((d3.selectAll(".line")["_groups"][0].length) == 0){
   makeSvg()
-  drawlinechart()
-  console.log("HALLOHALLO");
+  drawLineChart()
 }
 else {
   updateFunction()
 }
 
-// d3.select("#selected-dropdown").text("first");
-//
-// d3.select("select")
-//   .on("change",function(d){
-//     var selected = d3.select("#d3-dropdown").node().value;
-//     console.log( selected );
-//     d3.select("#selected-dropdown").text(selected);
-// })
-
+// makes svg for linechart
 function makeSvg() {
-  // setup margind of line chart
+
+  // setup margins for svg
   var margin = {top: 20, right:20, bottom: 30, left: 50},
       width = 600 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
@@ -48,7 +39,8 @@ function makeSvg() {
      );
 }
 
-function drawlinechart(){
+// draws linechart
+function drawLineChart(){
 
   // setup margind of line chart
   var margin = {top: 20, right:20, bottom: 30, left: 50},
@@ -58,11 +50,11 @@ function drawlinechart(){
   // x and y scales
    var x = d3.scaleLinear()
      .range([0, width])
-     // .domain([2007, 201])
 
    var y = d3.scaleLinear()
      .range([height, 0])
 
+   // setup points for line
    var line = d3.line()
       .x(function(d) { return x(d)})
       .y(function(d) { return y(lineDict[d])})
@@ -76,13 +68,13 @@ function drawlinechart(){
        y.domain(d3.extent(Object.values(lineDict), function(d) { return +d }));
 
 
-  // setup bottom axis
+       // setup bottom axis
      d3.select("#line").select("g").append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickFormat(d3.format("")))
         // .select(".domain");
 
-  // setup left axis
+        // setup left axis
      d3.select("#line").select("g").append("g")
          .call(d3.axisLeft(y)).attr("id", "yAxis")
          .append("text")
@@ -93,7 +85,7 @@ function drawlinechart(){
          .attr("text-anchor", "end")
          .text("Percentage of total");
 
-  // setup path
+         // setup path
          d3.select("#line").select("g").append("path")
          .datum(Object.keys(lineDict))
          .attr("fill", "none")
@@ -104,13 +96,15 @@ function drawlinechart(){
          .attr("stroke-width", 3)
          .attr("d", line);
 
-         var tool_tip = d3.tip()
+         // make tooltip for scatterplot
+         var toolTip = d3.tip()
          .attr("class", "d3-tip")
          .offset([-8, 2])
          .html(function(d){ return lineDict[d]})
 
-         d3.select("#line").select("g").call(tool_tip);
+         d3.select("#line").select("g").call(toolTip);
 
+         // makes scatterpolot for given data on linechart
          var scatter = d3.select("#line").select("g").selectAll("circle")
          .data(Object.keys(lineDict))
          .enter()
@@ -127,36 +121,36 @@ function drawlinechart(){
          .on("click", function(d){
               makeBarChart(d, country, data)})
          .on('mouseover', function(d){
-           console.log(lineDict[d]);
-           tool_tip.show(d)
+           toolTip.show(d)
          })
          .on('mouseout', function(d){
-           tool_tip.hide(d)
+           toolTip.hide(d)
          })
 }
 
-  function updateFunction() {
+// updates linechart
+function updateFunction() {
 
-  // setup margind of line chart
+  // setup margins svg
   var margin = {top: 20, right:20, bottom: 30, left: 50},
       width = 600 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
+  // x and y scales
   var x = d3.scaleLinear()
       .range([0, width])
 
   var y = d3.scaleLinear()
     .range([height, 0])
 
+  // setup points for line
   var line = d3.line()
      .x(function(d) { return x(d)})
      .y(function(d) { return y(lineDict[d])})
      x.domain(d3.extent(Object.keys(lineDict), function(d) { return +d}));
      y.domain(d3.extent(Object.values(lineDict), function(d) { return +d }));
 
-  console.log(lineDict);
-  console.log(d3.select("#line").select("g").selectAll(".line"));
-
+  // make new line
   var newLine = d3.select("#line").select("g").selectAll(".line").datum(Object.keys(lineDict))
   newLine
       .transition()
@@ -166,6 +160,7 @@ function drawlinechart(){
       .style("fill", "none")
       .style("stroke", "rgb(51, 153, 102)");
 
+  // make new circle
   var newCircle = d3.select("#line").select("g").selectAll(".circle").data(Object.keys(lineDict));
   newCircle
          .transition()
@@ -182,6 +177,7 @@ function drawlinechart(){
 
   d3.select("#yAxis").remove()
 
+  // make axis
   var newAxis =  d3.select("#line").select("g")
   newAxis
         .append("g")

@@ -1,33 +1,21 @@
 function makeBarChart(year, country, data, circ){
 
-  // let barChartDict = {}
-  console.log(country);
+  // make dicitonary of given data
   let barChartDict = {
     "Share of renewable energy in electricity": data[year][country]["Share of renewable energy in electricity"],
     "Share of renewable energy in heating and cooling": data[year][country]["Share of renewable energy in heating and cooling"],
     "Share of renewable energy in transport": data[year][country]["Share of renewable energy in transport"]
     };
 
-  // barChartList = []
-  // barChartList.push(data[year][country]["Share of renewable energy in electricity"])
-  // barChartList.push(data[year][country]["Share of renewable energy in heating and cooling"])
-  // barChartList.push(data[year][country]["Share of renewable energy in transport"])
-
-  // console.log(d3.selectAll(".rects")._groups[0].length);
-
-  console.log(barChartDict);
-
+  // if no barchart, draw new barchart. Otherwise update.
   if (d3.selectAll(".rects")._groups[0].length == 0){
     drawBarChart(barChartDict);
-  } else {
+    }
+  else {
     updateBarFunction(barChartDict);
-  }
-  // console.log(barChartDict);
-  // console.log(Object.values(barChartDict));
-  // console.log(["Share of renewable energy in electricity"]);
-  // console.log(barChartDict.length);
-
+    }
 }
+
 
 function drawBarChart(barChartDictT){
 
@@ -39,8 +27,11 @@ function drawBarChart(barChartDictT){
 
  var svgHeight = 400;
  var svgWidth = 600;
- var barPadding = 3;
+ var barPadding = 20;
+ var domainMin = 0;
+ var domainMax = 100;
 
+// setup tooltip
  var tooltip = d3.tip()
     .attr("class", "d3-tip")
     .offset([-8, 0])
@@ -50,8 +41,9 @@ function drawBarChart(barChartDictT){
   // scale x and y axis to boxplot data and given marges
   var yScale = d3.scaleLinear()
     .range([svgHeight - margin.top, margin.bottom])
-    .domain([0, 100])
+    .domain([domainMin, domainMax])
 
+  // setup x-axis labels
   var xvars = ['Electricity', 'Heating and cooling', 'Transport']
 
   var xScaleBars = d3.scaleLinear()
@@ -77,13 +69,11 @@ function drawBarChart(barChartDictT){
          .attr("transform", "translate(0, 380)")
          .call(d3.axisBottom(xScale))
 
-         // console.log(xScale(barChartList[0]));
-
      svg.call(tooltip);
 
      list = Object.values(barChartDictT)
-     // console.log(list);
 
+     // crerate barchart
      var rects = svg.selectAll("rect")
                .data(list)
                .enter()
@@ -101,22 +91,12 @@ function drawBarChart(barChartDictT){
                .attr("fill", "rgb(51, 153, 102)")
                .attr("class", "rects")
                .on('mouseover', function(d){
-                console.log(d);
                  tooltip.show(d);
                })
                .on('mouseout', tooltip.hide)
-               //   colour.html(d)
-               //   d3.select(this).style('fill', "maroon")
-               //
-               // })
-               //
-               // .on('mouseout', tool_tip.hide)
-               // .on('mouseout', function(d){
-               //   colour.transition()
-               //   d3.select(this).style('fill', "teal")
-               // })
 }
 
+// update existing barcahrt
 function updateBarFunction(barData) {
 
   // setup margind of line chart
@@ -128,11 +108,13 @@ function updateBarFunction(barData) {
  var svgHeight = 400;
  var svgWidth = 600;
  var barPadding = 3;
+ var domainMin = 0;
+ var domainMax = 100;
 
   // scale x and y axis to boxplot data and given marges
   var yScale = d3.scaleLinear()
     .range([svgHeight - margin.top, margin.bottom])
-    .domain([0, 100])
+    .domain([domainMin, domainMax])
 
   var xvars = ['Electricity', 'Heating and cooling', 'Transport']
 
@@ -140,28 +122,19 @@ function updateBarFunction(barData) {
     .range([margin.left, svgWidth - margin.right])
     .domain([0, 3])
 
+  // create new barchart
   var newRects = d3.select("#bar").selectAll(".rects").data(Object.values(barData))
-  console.log(newRects);
-  console.log(Object.values(barData));
 
-  // newRects.enter().append("rect");
-  //
-  // newRects.exit().remove()
-
-  newRects
-        .transition()
-        .duration(500)
-        .attr("y", function(d) {
-         return yScale(d) ;  //Height minus data value
-         })
-        // .attr("width", width / 3  - barPadding)
-        .attr("height", function(d) {
-         return height - yScale(d) + margin.bottom ;  //Just the data value
-         })
-        // .attr("x", function(d, i) {
-        //      return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
-        //    })
-        .attr("fill", "rgb(51, 153, 102)")
-        .attr("class", "rects")
+  // update barchart with duration
+  newRects.transition()
+          .duration(500)
+          .attr("y", function(d) {
+          return yScale(d) ;
+          })
+          .attr("height", function(d) {
+          return height - yScale(d) + margin.bottom ;  //Just the data value
+          })
+          .attr("fill", "rgb(51, 153, 102)")
+          .attr("class", "rects")
 
 }

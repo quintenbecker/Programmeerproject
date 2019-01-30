@@ -52,4 +52,7 @@ Vandaag ben ik bezig geweest om mijn update functies te schrijven, het is me gel
 Vandaag heb ik de dropdown geimplementeerd, hij werkt en update goed. Verder ben ik vandaag bezig geweest de opmaak van mn site, heb teksten geschreven en ben het principe van css goed gaan begrijpen.
 
 ## dinsdag
-Vandaag ga ik nog de tooltips bij de scatterplot en bij de barchart toevoegen. Omdat ik maandag de map heat-sensitive heb gemaakt, ga ik daar ook een legenda voor maken.  
+Vandaag ga ik nog de tooltips bij de scatterplot en bij de barchart toevoegen. Omdat ik maandag de map heat-sensitive heb gemaakt, ga ik daar ook een legenda voor maken. Ik heb vandaag ook veel aan de opmaak van m'n site gewerkt. De homepage van mijn site is zo goed als af.
+
+## woensdag
+Vandaag ga ik mijn legenda implementeren en op hopelijk met wat hulp op de juiste plek zetten, verder schoon ik mijn code verder op.  

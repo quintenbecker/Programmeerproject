@@ -53,3 +53,10 @@ transform: translate(700px, 245px);
 #card2{
   transform: translate(100px, -305px);
 }
+
+.legend{
+  transform: translate(550px, 0px);
+  font-family: sans-serif;
+  font-weight: 10;
+  font-size: 80%;
+}
