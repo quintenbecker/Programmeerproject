@@ -43,16 +43,16 @@ body{
 }
 
 #card1{
-transform: translate(700px, 245px);
+transform: translate(400px, 245px);
 }
 
 #picture{
   transform: translate(120px, 0px);
 }
-
+/*
 #card2{
   transform: translate(100px, -305px);
-}
+} */
 
 .legend{
   transform: translate(550px, 0px);
