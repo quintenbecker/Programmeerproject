@@ -1,7 +1,7 @@
 import csv
 import json
 
-with open("data.csv", 'r') as csv_file:
+with open("data/csv/data.csv", 'r') as csv_file:
     file = csv.DictReader(csv_file)
 
     json_dict = {}
@@ -21,5 +21,5 @@ with open("data.csv", 'r') as csv_file:
         json_dict[row["TIME"]][row["GEO"]][row["INDIC_EN"]] = row["Value"]
 
 
-with open('jsonfile.json', 'w') as f:
+with open('data/json/jsonfile.json', 'w') as f:
     json.dump(json_dict, f)

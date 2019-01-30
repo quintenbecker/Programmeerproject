@@ -15,7 +15,7 @@ body{
 #Fronttext{
   font-family: sans-serif;
   font-weight: 100;
-  font-size: 110%;
+  font-size: 100%;
   transform: translate(10px, 70px);
 }
 
@@ -48,6 +48,10 @@ transform: translate(400px, 245px);
 
 #picture{
   transform: translate(120px, 0px);
+}
+
+#link{
+  color: blue;
 }
 /*
 #card2{

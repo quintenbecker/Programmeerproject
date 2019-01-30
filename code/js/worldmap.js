@@ -45,8 +45,8 @@ gTime.call(sliderTime);
 // draws worldmap
 function drawMap(data, year){
 
-  var worldmap = "map.json"
-  var jsonfile = "jsonfile.json"
+  var worldmap = "data/json/map.json"
+  var jsonfile = "data/json/jsonfile.json"
   var request = [d3.json(worldmap)];
   var format = d3.format(",");
 
