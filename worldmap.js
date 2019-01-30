@@ -49,7 +49,6 @@ gTime.call(sliderTime);
 
 function drawMap(data, year){
 
-
   var worldmap = "map.json"
   var jsonfile = "jsonfile.json"
   var request = [d3.json(worldmap)];
@@ -75,7 +74,7 @@ function drawMap(data, year){
 
     var color = d3.scaleThreshold()
         .domain([10,20,40,60,80,100])
-        .range(["rgb(0, 230, 0)","rgb(0, 204, 51)", "rgb(0, 179, 45)", "rgb(0, 153, 38)" ,"rgb(0, 128, 32)","rgb(0, 102, 26)"]);
+        .range(["rgb(0, 204, 102)",	"rgb(15, 189, 102)", "rgb(51, 153, 102)" ,"	rgb(66, 138, 102)","rgb(82, 122, 102)", "rgb(97, 107, 102)"]);
 
     var height = 400;
     var width = 1000;
@@ -100,11 +99,12 @@ function drawMap(data, year){
 
     var projection = d3.geoMercator()
                        .scale(440)
-                      .translate( [width / 2 - 50, height+ 280]);
+                      .translate( [width / 2 - 50, height+ 275]);
 
     var path = d3.geoPath().projection(projection);
 
     // svg.selectAll()
+    // make legend in #map svgMap
 
     svg.append("g")
          .attr("class", "countries")
@@ -127,7 +127,7 @@ function drawMap(data, year){
          .style("stroke","white")
          .style('stroke-width', 0.3)
          .on('mouseover',function(d){
-           console.log(d);
+           // console.log(d);
            if (data[year][d.properties.name] !== undefined){
              d3.select(this)
                .style("opacity", 1)
@@ -142,8 +142,37 @@ function drawMap(data, year){
              .style("opacity", 0.8)
              .style("stroke","white")
              .style("stroke-width",0.3);
-               })
+              })
        });
 
    }
+
+// function createLegend() {
+//        legend = svg.selectAll(".legend")
+//               .data(color)
+//               .enter()
+//               .append("g")
+//               .attr("class" , "legend")
+//               .attr("transform", function(d, i) {
+//                 return "translate(0," + i * 20 + ")";
+//               })
+//
+//          legend.append('rect')
+//            .attr("x", 430)
+//            .attr("y", 220)
+//            .attr("width", 10)
+//            .attr("height", 10)
+//            .attr("fill", function(d, i){
+//              return "blue"
+//            });
+//
+//          legend.append("text")
+//            .attr("x", 450)
+//            .attr("y", 500)
+//            .text(function(d){
+//              return d;
+//            })
+//      }
+//
+//      createLegend()
 }

@@ -1,7 +1,9 @@
 <HTML>
 <HEAD>
+  <link rel="shortcut icon" type="image/png" href="doc/favicon.ico"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css"  href="website.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <!-- <script src="d3/d3-tip.js"></script> -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -16,7 +18,7 @@
   <script src="all.js"></script>
   <!-- <link rel="stylesheet" type="text/css"  href="scatter.css"> -->
 </HEAD>
-<BODY>
+<BODY id="body2">
   <Title> Programmeerproject </Title>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Programmeerproject</a>
@@ -34,13 +36,11 @@
     </ul>
   </div>
 </nav>
-<h3> Visualisatie </h3>
-<p1> Hier is mijn visualisatie te zien, allereerst een interactieve wereldkaart, dan een barchart & dan een piechart </p>
+<h3 id="Visualisatie"> Visualisatie </h3>
   <svg width=100% height=80 id="slider"></svg>
   <svg width="100%" height="400" id="map"></svg>
   <select id="d3-dropdown">
 </select>
-
 <p id="selected-dropdown"></p>
   <svg width="600" height="400" id="line"> </svg>
   <svg width="600" height="430" id="bar"></svg>

@@ -49,4 +49,7 @@ Vandaag ben ik bezig geweest om mijn update functies te schrijven, het is me gel
 # Week 4
 
 ## maandag
-Vandaag heb ik de dropdown geimplementeerd, hij werkt en update goed. Verder ben ik vandaag bezig geweest met de opmaak van mn site. 
+Vandaag heb ik de dropdown geimplementeerd, hij werkt en update goed. Verder ben ik vandaag bezig geweest de opmaak van mn site, heb teksten geschreven en ben het principe van css goed gaan begrijpen.
+
+## dinsdag
+Vandaag ga ik nog de tooltips bij de scatterplot en bij de barchart toevoegen. Omdat ik maandag de map heat-sensitive heb gemaakt, ga ik daar ook een legenda voor maken.  

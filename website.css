@@ -2,10 +2,54 @@ body{
   background: powderblue;
 }
 
+#body2{
+  background: powderblue;
+}
+
+#Title1{
+  font-family: sans-serif;
+  font-weight: 0;
+  font-size: 300%;
+  transform: translate(320px, 20px);
+}
 #Fronttext{
   font-family: sans-serif;
   font-weight: 100;
-  font-style:
-  font-size: 500%;
-  transform: translate(10px, 80px);
+  font-size: 110%;
+  transform: translate(10px, 70px);
+}
+
+#Visualisatie{
+  font-family: sans-serif;
+  font-weight: 0;
+  font-size: 300%;
+  transform: translate(480px, 10px);
+}
+
+#Quote{
+  font-family: sans-serif;
+  font-weight: 20;
+  font-size: 200%;
+  font-style: oblique;
+  transform: translate(0px, 150px);
+}
+
+#name{
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 80%;
+  font-style: oblique;
+  transform: translate(550px, 0px);
+}
+
+#card1{
+transform: translate(700px, 245px);
+}
+
+#picture{
+  transform: translate(120px, 0px);
+}
+
+#card2{
+  transform: translate(100px, -305px);
 }

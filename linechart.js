@@ -98,11 +98,18 @@ function drawlinechart(){
          .datum(Object.keys(lineDict))
          .attr("fill", "none")
          .attr("class", "line")
-         .attr("stroke", "rgb(0, 179, 0)")
+         .attr("stroke", "rgb(51, 153, 102)")
          .attr("stroke-linejoin", "round")
          .attr("stroke-linecap", "round")
          .attr("stroke-width", 3)
          .attr("d", line);
+
+         var tool_tip = d3.tip()
+         .attr("class", "d3-tip")
+         .offset([-8, 2])
+         .html(function(d){ return lineDict[d]})
+
+         d3.select("#line").select("g").call(tool_tip);
 
          var scatter = d3.select("#line").select("g").selectAll("circle")
          .data(Object.keys(lineDict))
@@ -116,13 +123,16 @@ function drawlinechart(){
          .attr("cy", function(d) {
               return y(lineDict[d]);
             })
-         .attr("fill", "#FF005A")
+         .attr("fill", "#ff9900")
          .on("click", function(d){
-              makeBarChart(d, country, data);
+              makeBarChart(d, country, data)})
+         .on('mouseover', function(d){
+           console.log(lineDict[d]);
+           tool_tip.show(d)
          })
-         // year = "2015";
-         //
-         // makeBarChart(year, country, data);
+         .on('mouseout', function(d){
+           tool_tip.hide(d)
+         })
 }
 
   function updateFunction() {
@@ -154,7 +164,7 @@ function drawlinechart(){
       .attr("d", line)
       .attr("class", "line")
       .style("fill", "none")
-      .style("stroke", "rgb(0, 179, 0)");
+      .style("stroke", "rgb(51, 153, 102)");
 
   var newCircle = d3.select("#line").select("g").selectAll(".circle").data(Object.keys(lineDict));
   newCircle
@@ -164,7 +174,7 @@ function drawlinechart(){
          .attr("cx", function(d, i) { return x(d) })
          .attr("cy", function(d) { return y(lineDict[d]) })
          .attr("r", 5)
-         .attr("fill", "#FF005A")
+         .attr("fill", "#ff9900")
 
   newCircle.on("click", function(d){
     makeBarChart(d, country, data);

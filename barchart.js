@@ -41,6 +41,11 @@ function drawBarChart(barChartDictT){
  var svgWidth = 600;
  var barPadding = 3;
 
+ var tooltip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([-8, 0])
+    .html(function(d) { return d});
+
 
   // scale x and y axis to boxplot data and given marges
   var yScale = d3.scaleLinear()
@@ -74,6 +79,8 @@ function drawBarChart(barChartDictT){
 
          // console.log(xScale(barChartList[0]));
 
+     svg.call(tooltip);
+
      list = Object.values(barChartDictT)
      // console.log(list);
 
@@ -91,11 +98,13 @@ function drawBarChart(barChartDictT){
                .attr("x", function(d, i) {
                     return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
                   })
-               .attr("fill", "rgb(0, 179, 0)")
+               .attr("fill", "rgb(51, 153, 102)")
                .attr("class", "rects")
-               // .on('mouseover', tool_tip.show)
-               // .on('mouseenter', function(d){
-               //   // tool_tip.show;
+               .on('mouseover', function(d){
+                console.log(d);
+                 tooltip.show(d);
+               })
+               .on('mouseout', tooltip.hide)
                //   colour.html(d)
                //   d3.select(this).style('fill', "maroon")
                //
@@ -152,7 +161,7 @@ function updateBarFunction(barData) {
         // .attr("x", function(d, i) {
         //      return xScaleBars(i) + barPadding;  //Bar width of 20 plus 1 for padding
         //    })
-        .attr("fill", "rgb(0, 179, 0)")
+        .attr("fill", "rgb(51, 153, 102)")
         .attr("class", "rects")
 
 }
