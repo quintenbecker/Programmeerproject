@@ -1,13 +1,5 @@
 Styleguide
 
-Sources:
-
-Javascript style guide: https://standardjs.com/rules.html
-
-Javascript style guide: https://github.com/standard/standard
-
-D3 style guide: https://northlandia.wordpress.com/2014/10/23/ten-best-practices-for-coding-with-d3/
-
 Rule 1: Use single quotes for strings (‘blop’ not “blop”). This looks the neatest. Only use double quotes to avoid escaping (“<div class=’box’>”).
 
 Rule 2: Put each new method on its own indented line. It helps to make your code neat and understandable. var provinces = svg.selectAll(“province”)
@@ -31,3 +23,11 @@ Rule 8:  Commas should have a space after them. If you create a list like this: 
 Rule 9: Assign static or default styles using a CSS stylesheet. It clearer to have a separate css file that contains all the static and default styles, by referring to the made variables in your script.
 
 Rule 10: Make sure the data is in the correct type for the operations using it. If you need to make calculations with a list of numbers for example, make sure the list is of numbers, and not strings.
+
+Sources:
+
+Javascript style guide: https://standardjs.com/rules.html
+
+Javascript style guide: https://github.com/standard/standard
+
+D3 style guide: https://northlandia.wordpress.com/2014/10/23/ten-best-practices-for-coding-with-d3/

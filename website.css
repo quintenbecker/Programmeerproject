@@ -53,14 +53,3 @@ transform: translate(400px, 245px);
 #link{
   color: blue;
 }
-/*
-#card2{
-  transform: translate(100px, -305px);
-} */
-
-.legend{
-  transform: translate(550px, 0px);
-  font-family: sans-serif;
-  font-weight: 10;
-  font-size: 80%;
-}

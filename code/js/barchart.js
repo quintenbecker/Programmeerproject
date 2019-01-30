@@ -74,7 +74,7 @@ function drawBarChart(barChartDictT){
    list = Object.values(barChartDictT)
 
    svg.append('text')
-   .attr('x', 230)
+   .attr('x', 215)
    .attr('y', 20)
    .attr('id', 'countryNow')
    .attr('fontfamily', 'arial')
