@@ -1,7 +1,7 @@
 window.onload = function() {
 
 //
-  d3.json("data/json/jsonfile.json").then(function(data) {
+  d3.json("https://raw.githubusercontent.com/quintenbecker/Programmeerproject/master/data/json/jsonfile.json").then(function(data) {
     makeWorldmap(data);
     })
 
