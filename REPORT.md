@@ -55,6 +55,6 @@ Mijn grootste challenge tijdens dit project was om het groter geheel te begrijpe
 
 
 ### Decisions
-Mijn 
+Mijn laatste versie is heel anders dan wat ik eerst in gedachte had, in plaats van een pie chart heb ik gekozen voor een barchart. Ook heb ik een dropdown menu toegevoegd, en ben ik de data anders gaan vormen. Ik dacht dat ik vanuit mijn Json file wel alle visualisaties kon vormen. Maar achteraf heb ik toch voor elke visualisatie een andere dictionary aangemaakt die het best gebruikt kon worden. Elke dag zag ik langzaam voortgang geboekt worden op mijn site. Ik had eerst alle drie de visualisaties gemaakt en ze toen pas gelinkt, ik bedacht me later dat het misschien slimmer was geweest om een visualisatie gelijk te linken aan de volgende en die weer aan de volgende. Toen ik alle drie de visualisaties afhad, verloor ik namelijk het overzicht wat ik nou eigenlijk wilde koppelen en waar dat allemaal stond. Achteraf denk ik dat ik sommige dagen wel te weinig heb gedaan (concentratieboog is kort). Mijn code had een stuk mooier kunnen zijn als ik er meer tijd voor had gehad. 
   
 
