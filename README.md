@@ -9,7 +9,8 @@ Minor Programmeren
 [Programmeerproject](https://quintenbecker.github.io/Programmeerproject/website.html)
 
 ### Product Video
-link
+
+[Product video](https://youtu.be/kTILEUrisFU)
 
 ### Samenvatting
 Mijn website bevat 3 interactieve visualisaties (een wereldmap, een barchart en een linegraph).
